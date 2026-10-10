@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sagarasangamam | Natural Products</title>
+<link href='https://fonts.googleapis.com/css?family=Gurajada' rel='stylesheet'>
+
+<style>
+:root {
+    --yellow: #ffe000;
+    --red: #e6291c;
+    --purple: #2d176b;
+    --white: #fff;
+    --black: #111;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #eee;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 24px;
+    color: var(--black);
+}
+
+.banner {
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+    background: var(--yellow);
+    border: 1px solid #ccc;
+    box-shadow: 5px 5px 0 #bbb;
+    overflow: hidden;
+}
+
+/* Common image handling */
+img {
+    display: block;
+    max-width: 100%;
+}
+
+.photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-frame {
+    overflow: hidden;
+    border-radius: 7px;
+    background: #f5d94a;
+    border: 1px solid rgba(0,0,0,.12);
+}
+
+/* HEADER */
+.header {
+    background: var(--yellow);
+    padding: 16px 18px 12px;
+}
+
+.meta-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: start;
+    gap: 12px;
+    color: var(--red);
+    font-size: clamp(11px, 1.2vw, 17px);
+    font-weight: 900;
+    text-shadow: 1px 1px white;
+}
+
+.meta-center {
+    color: var(--purple);
+    text-align: center;
+}
+
+.meta-right {
+    text-align: right;
+}
+
+.brand-row {
+    display: grid;
+    grid-template-columns: 155px minmax(0, 1fr) 130px;
+    gap: 12px;
+    align-items: center;
+}
+
+.profile {
+    text-align: center;
+    color: var(--red);
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.profile img {
+    width: 84px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 auto 4px;
+    border: 2px solid #f2d34c;
+}
+
+.brand-center {
+    text-align: center;
+    min-width: 0;
+}
+
+.intro {
+    color: var(--red);
+    font-weight: 900;
+    font-size: clamp(13px, 2.1vw, 30px);
+    line-height: 1.15;
+    margin: 6px 0 4px;
+    text-shadow: 1px 1px white;
+}
+
+.brand-name {
+    color: var(--purple);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: clamp(38px, 9.2vw, 95px);
+    line-height: 1;
+    letter-spacing: -1.5px;
+    font-weight: 700;
+    white-space: nowrap;
+    text-shadow:
+        -3px -3px white,
+        3px -3px white,
+        -3px 3px white,
+        3px 3px white;
+}
+
+.brand-logo {
+    width: 135px;
+    height: 160px;
+    margin: auto;
+    border-radius: 50%;
+    border: 5px solid white;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.brand-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.fssai {
+    font-size: 11px;
+    color: var(--purple);
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+/* RED PRODUCT BANNER */
+.oil-banner {
+    background: var(--red);
+    color: white;
+    border-top: 2px solid #f7bd00;
+    padding: 5px 10px 8px;
+    text-shadow: 2px 2px var(--black),
+                 -1px -1px var(--black);
+    text-align: center;
+    font-weight: 900;
+}
+
+.oil-banner h2 {
+    font-size: clamp(22px, 4.1vw, 57px);
+    line-height: 1.12;
+    margin-top: 5px;
+}
+
+.oil-banner h1 {
+    font-size: clamp(20px, 2.7vw, 32px);
+    font-family: Cambria, Cochin, Georgia, Times, serif;
+    line-height: 1.1;
+    margin-top: 5px;
+}
+
+.oil-banner h4 {
+    font-size: clamp(16px, 2.0vw, 24px);
+    font-family: Cambria, Cochin, Georgia, Times, serif;
+    line-height: 1;
+    margin-top: 2px;
+}
+/* MAIN CONTENT GRID */
+.content {
+    display: grid;
+    grid-template-columns: 1.12fr 1fr 1.12fr;
+    gap: 8px;
+    padding: 8px 12px;
+    background: var(--yellow);
+}
+
+.column {
+    min-width: 0;
+    font-size: clamp(16px, 2.0vw, 24px);
+    font-family: Cambria, Cochin, Georgia, Times, serif;
+    line-height: 1;
+    margin-top: 2px;
+    font-weight: bold;
+    text-shadow: 1.5px 1px white;
+}
+
+.content-photo {
+    height: 135px;
+}
+
+.caption {
+    color: var(--red);
+    line-height: 1.35;
+    text-align: center;
+    padding: 6px 2px;
+}
+
+.caption2 {
+    color: var(--purple);
+    line-height: 1.35;
+    text-align: center;
+    font-family: 'Gurajada';
+    font-size: clamp(16px, 2.0vw, 32px);
+}
+.section-title {
+    color: var(--purple);
+    line-height: 1.2;
+    text-align: center;
+    margin: 7px 0;
+}
+
+.products {
+    list-style: none;
+    color: var(--red);
+    line-height: 1.35;
+    padding: 6px 2px;
+}
+
+.products li {
+    overflow-wrap: anywhere;
+}
+
+.purple-message {
+    background: var(--purple);
+    color: var(--yellow);
+    text-align: center;
+    padding: 9px 7px;
+    border-radius: 12px;
+    line-height: 1.4;
+    margin: 8px 0;
+    text-shadow:none;
+    
+}
+
+.red-message {
+    color: var(--red);
+    line-height: 1.4;
+    padding: 4px 7px;
+}
+
+.millet-panel {
+    color: var(--purple);
+    line-height: 1.55;
+    padding: 0 5px;
+    text-align: center;
+}
+
+.millet-panel h2 {
+    color: var(--red);
+    line-height: 1.25;
+    margin-bottom: 3px;
+    
+}
+
+.jaggery-title {
+    color: var(--purple);
+    text-align: center;
+    line-height: 1.25;
+    margin-bottom: 8px;
+}
+
+.diabetic-title {
+    color: var(--red);
+    text-align: center;
+    line-height: 1.15;
+    margin-top: 7px;
+}
+
+.doctor {
+    color: var(--purple);
+    text-align: center;
+    margin: 4px 0;
+}
+
+/* BOTTOM PHOTO GALLERY */
+.gallery {
+    display: grid;
+    grid-template-columns: 1.5fr 1.2fr .8fr 1fr 1fr 1fr;
+    gap: 6px;
+    padding: 0 12px 8px;
+    background: var(--yellow);
+}
+
+.gallery .image-frame {
+    height: 110px;
+}
+
+.gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ADDRESS FOOTER */
+.footer {
+    background: var(--purple);
+    color: white;
+    padding: 10px 14px;
+    text-align: center;
+    font-family: Impact, "Arial Narrow", sans-serif;
+    font-size: clamp(12px, 1.65vw, 22px);
+    line-height: 1.35;
+    font-weight: bold;
+}
+
+/* OPTIONAL SLIDE-OUT MENU */
+.menu {
+    position: fixed;
+    left: 0;
+    top: 30%;
+    z-index: 100;
+}
+
+.menu-button {
+    width: 42px;
+    height: 42px;
+    background: var(--purple);
+    border: 0;
+    border-radius: 6px 0 0 6px;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.menu-links {
+    display: none;
+    position: absolute;
+    left: 42px;
+    top: 0;
+    width: 165px;
+    background: white;
+    border: 2px solid var(--purple);
+}
+
+.menu-links a {
+    display: block;
+    padding: 11px 14px;
+    color: var(--purple);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.menu-links a:hover,
+.menu-links a:focus {
+    background: var(--yellow);
+}
+
+.menu:hover .menu-links,
+.menu:focus-within .menu-links,
+.menu.open .menu-links {
+    display: block;
+}
+
+/* TABLET */
+@media (max-width: 850px) {
+    body {
+        padding: 10px;
+    }
+
+    .header {
+        padding: 10px;
+    }
+
+    .brand-row {
+        grid-template-columns: 85px minmax(0, 1fr) 85px;
+        gap: 5px;
+    }
+
+    .profile img {
+        width: 60px;
+        height: 75px;
+    }
+
+    .brand-logo {
+        width: 78px;
+        height: 90px;
+        border-width: 3px;
+    }
+
+    .content {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+/* MOBILE */
+@media (max-width: 520px) {
+    body {
+        padding: 4px;
+    }
+
+    .banner {
+        box-shadow: 2px 2px 0 #bbb;
+    }
+
+    .meta-row {
+        grid-template-columns: 1fr 1fr;
+        font-size: 10px;
+    }
+
+    .meta-center {
+        grid-column: 1 / -1;
+        grid-row: 2;
+    }
+
+    .brand-row {
+        grid-template-columns: 55px minmax(0, 1fr) 55px;
+        gap: 3px;
+    }
+
+    .profile {
+        font-size: 8px;
+        overflow-wrap: anywhere;
+    }
+
+    .profile img {
+        width: 48px;
+        height: 60px;
+    }
+
+    .brand-logo {
+        width: 52px;
+        height: 60px;
+        border-width: 2px;
+    }
+
+    .brand-name {
+        font-size: clamp(24px, 8vw, 40px);
+        letter-spacing: -1px;
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
+
+    .intro {
+        font-size: 11px;
+    }
+
+    .content {
+        grid-template-columns: 1fr 1fr;
+        gap: 6px;
+        padding: 6px;
+    }
+
+    .content-photo {
+        height: 100px;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0 6px 6px;
+    }
+
+    .gallery .image-frame {
+        height: 95px;
+    }
+
+    .products {
+        padding: 2px;
+        font-size: 12px;
+    }
+
+    .footer {
+        font-size: 11px;
+    }
+}
+
+@media print {
+    body {
+        padding: 0;
+        background: white;
+    }
+
+    .banner {
+        max-width: none;
+        box-shadow: none;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    @page {
+        size: landscape;
+        margin: 5mm;
+    }
+}
+.meta-row {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr auto 1fr;
+    align-items: center;
+    gap: 12px;
+    color: #e6291c;
+    font-size: clamp(11px, 1.15vw, 16px);
+    font-weight: 900;
+}
+
+.meta-center {
+    color: #2d176b;
+    text-align: center;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    white-space: nowrap;
+}
+
+.header-actions a {
+    color: #2d176b;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.header-actions a:hover {
+    color: #e6291c;
+    text-decoration: underline;
+}
+
+.whatsapp {
+    text-align: right;
+    white-space: nowrap;
+    color: #e6291c;
+}
+
+.whatsapp a {
+    color: inherit;
+    text-decoration: none;
+}
+.whatsapp {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.whatsapp a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.whatsapp-logo {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    transition: transform 0.2s ease;
+}
+
+.whatsapp-logo:hover {
+    transform: scale(1.12);
+}
+
+@media (max-width: 520px) {
+    .whatsapp-logo {
+        width: 34px;
+        height: 34px;
+    }
+}
+.footer {
+    background: #2d176b;
+    color: #fff;
+    padding: 10px 14px;
+    text-align: center;
+    font-size: clamp(12px, 1.5vw, 22px);
+    font-weight: 1;
+    line-height: 1.35;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+@media (max-width: 850px) {
+    .meta-row {
+        grid-template-columns: 1fr 1fr;
+        row-gap: 8px;
+    }
+
+    .meta-center {
+        grid-column: 1 / -1;
+        grid-row: 1;
+    }
+
+    .header-actions {
+        justify-content: flex-start;
+    }
+
+    .whatsapp {
+        text-align: right;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="banner" id="home">
+
+    <!-- TOP METADATA -->
+    <header class="header" id="home">
+
+    <div class="meta-row">
+    
+        <div class="gstin">
+            GSTIN: 36AVQPP2654Q1ZL
+        </div>
+
+        <div class="meta-center">
+            "Dharmo Rakshati Rakshitaha"
+        </div>
+
+        <div class="header-actions">
+           <button class="search-toggle" type="button"
+            placeholder="Search oils, millets, spices, sweets..."
+        onclick="toggleSearch()" aria-expanded="false">
+    🔍 Search
+</button>
+
+<a href="#cart">🛒 Cart</a>
+        </div>
+
+        <div class="whatsapp">
+    <a href="https://wa.me/919959359860"
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="Contact Sagarasangamam on WhatsApp">
+
+        <img
+            src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+            alt="WhatsApp"
+            class="whatsapp-logo"
+        >
+    </a>
+</div>
+    </div>
+
+    <div class="brand-row">
+
+        <div class="profile">
+            <img src="./director.jpg"
+                 alt="Director K. Vishwanath">
+            Director K. Vishwanath
+        </div>
+
+        <div class="brand-center">
+            <div class="intro">
+                We are happy to introduce natural healthy products from
+            </div>
+
+            <h1 class="brand-name">SAGARASANGAMAM</h1>
+        </div>
+
+        <div class="profile">
+            <img src="images/vidyasagar.jpg"
+                 alt="D. Vidyasagar">
+            D. Vidyasagar
+            <div class="fssai">
+                FSSAI: 23625028001137
+            </div>
+        </div>
+
+    </div>
+</header>
+
+    <!-- OIL BANNER -->
+    <section class="oil-banner" id="oils">
+        <h2>A 'go-to' resource for natural and healthy foods.</h2>
+        <h1>
+    </section>
+
+    <!-- MAIN INFORMATION COLUMNS -->
+    <main class="content">
+
+        <!-- LEFT COLUMN -->
+        <section class="column" id="spices">
+
+            <div class="image-frame content-photo">
+                <img class="photo"
+                     src="./farming.jpg"
+                     alt="Farmer displaying natural products">
+            </div>
+
+            <p class="caption">
+                Senior I.A.S. Officer Doing Farming<br>
+                Syamala Golden Spice Turmeric Powder
+                with Black Pepper (From Meghalaya)
+                <br>Our oils are exclusively bull driven and are cold-pressed
+            </p>
+
+            <div class="purple-message">
+                We are happy to start millet batter. 
+                <br> Our millet batters are prepared stricly following the 
+                <span style="color:var(--white)"> 'Millet Diet Protocol' developed by Dr. Khadervali</span> 
+            </div>
+        </section>
+
+        <!-- MIDDLE COLUMN -->
+        <section class="column" id="millets">
+
+            <div class="image-frame content-photo">
+                <img class="photo"
+                     src="./millet-farming.jpg"
+                     alt="Millet farmers and visitors">
+            </div>
+
+            <div class="millet-panel" id="batters">
+                Our millets are rain-fed and unpolished.
+                <p class="red-message"> Our beloved 
+                    <span style="color:var(--purple)">
+                    PM Sri Narendra Modi Ji</span> 
+                    praised our millets the Mann Ki Baat programme.</p>
+            </div>
+
+            <div class="section-title">Our speciality Till laddu</div>
+
+            <p class="caption2">
+                నువ్వుల అచ్చు (నువ్వుల లడ్డు)
+            </p>
+
+            <div class="image-frame content-photo" id="sweets">
+                <img class="photo"
+                     src="images/til-laddu.jpg"
+                     alt="Traditional sesame seed laddus">
+            </div>
+
+        </section>
+
+        <!-- RIGHT COLUMN -->
+        <section class="column">
+
+            <div class="image-frame content-photo">
+                <img class="photo"
+                     src="images/date-palm.jpg"
+                     alt="Date palm tree">
+            </div>
+
+            <div class="jaggery-title">
+                Silver date palm jaggery powder 
+                <br>
+                sourced from West Bengal Palm trees
+                <br>
+                Silver date palm jaggery powder 
+                <br>
+                sourced from Anantapur, Rayalaseema
+            </div>
+            <p class="caption">
+                Our jaggery preparations were tested by Dr. Khadarvali
+            </p>
+
+            <div class="diabetic-title">
+                People with diabetic conditions can also consume
+            </div>
+
+            <p class="doctor">
+                - Dr. P. Vijaya Kumar (Wellness Doctor)
+            </p>
+
+        </section>
+
+    </main>
+
+    <!-- BOTTOM PHOTO STRIP -->
+    <section class="gallery" aria-label="Product and farming photographs">
+
+        <div class="image-frame">
+            <img src="images/farm-visit.jpg"
+                 alt="Farm visit">
+        </div>
+
+        <div class="image-frame">
+            <img src="images/millet-field.jpg"
+                 alt="Millet crop field">
+        </div>
+
+        <div class="image-frame">
+            <img src="images/til-laddu.jpg"
+                 alt="Sesame laddus">
+        </div>
+
+        <div class="image-frame">
+            <img src="images/customer-visit.jpg"
+                 alt="Customer visit">
+        </div>
+
+        <div class="image-frame">
+            <img src="images/product-presentation.jpg"
+                 alt="Product presentation">
+        </div>
+
+        <div class="image-frame">
+            <img src="images/product-jar.jpg"
+                 alt="Natural product jar">
+        </div>
+
+    </section>
+
+    <!-- ADDRESS FOOTER -->
+   <footer class="footer" id="contact">
+    <h3>Properiter: Dr. P. Vijaya Kumar (Wellness Doctor)</h3>
+    Near Saraswathi Vidya Ranya International School,
+    Bandlaguda Jagir, Kismathpur Road, Hyderabad, Telangana
+    &amp; 
+    <br>Padmavathi Jewellery Shop Building,
+    Prashanth Nagar Colony, Opp. Masjid, Bandlaguda Jagir, Kismathpur Road, Hyderabad, Telangana
+</footer>
+
+</div>
+
+<!-- OPTIONAL NAVIGATION MENU -->
+<nav class="menu" aria-label="Main navigation">
+    <button class="menu-button"
+            type="button"
+            aria-label="Toggle navigation"
+            aria-expanded="false"
+            onclick="
+                const menu = this.parentElement;
+                const isOpen = menu.classList.toggle('open');
+                this.setAttribute('aria-expanded', isOpen);
+            ">
+        ☰
+    </button>
+
+    <div class="menu-links">
+        <a href="#home">Home</a>
+        <a href="#oils">Oils</a>
+        <a href="#millets">Millets</a>
+        <a href="#sweets">Sweets</a>
+        <a href="#spices">Spices</a>
+        <a href="#batters">Batters</a>
+    </div>
+</nav>
+</body>
+</html>
